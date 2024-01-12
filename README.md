@@ -1,256 +1,343 @@
-# @esri/cedar
+# 📝 2022最新Java面试题合集 
 
-[![Build Status](https://travis-ci.org/Esri/cedar.svg?branch=master)](https://travis-ci.org/Esri/cedar)
+☕ 包括 Java 集合、JVM、多线程、并发编程、设计模式、SpringBoot、SpringCloud、Redis、MySQL、MyBatis、ZooKeeper、Dubbo、Elasticsearch、Memcached、MongoDB、RabbitMQ、Kafka、Linux、Netty、Tomcat、Python、HTML、CSS、Vue、JavaScript、大数据、BATJ 大厂面试题等等技术栈！
 
-## JavaScript Charts for ArcGIS
 
-![cedar](https://user-images.githubusercontent.com/662944/50370886-db42cc80-0563-11e9-8a3e-7d46fc378825.gif)
 
-Cedar is a library for crafting and sharing data visualizations that:
-- are powered by data from ArcGIS [maps, scenes,](https://developers.arcgis.com/javascript/) and [services](https://developers.arcgis.com/documentation/core-concepts/rest-api/)
-- include smart default visualization choices
-- can be customized to meet your specific needs
-
-See below for how to [get started](#getting-started), understand cedar's [core concepts](#concepts), or see [demos](#demos) of cedar in action.
-
-You are looking at the documentation for v1.x of cedar. You can also view the [documentation for v0.x of cedar](https://github.com/Esri/cedar/tree/v0.x).
-
-## Getting Started
-
-### Installing Cedar
-
-**NOTE:** If you want to use cedar in an Ember.js application, see [ember-cli-cedar](https://github.com/Esri/ember-cli-cedar) instead.
-
-You can install cedar and its [dependencies](#dependencies) with npm:
-```bash
-npm install --save @esri/arcgis-rest-feature-layer@^2.0.0 @esri/arcgis-rest-request@^2.0.0 amcharts3 @esri/cedar 
-```
-
-or yarn:
-
-```bash
-yarn add @esri/arcgis-rest-feature-layer@^2.0.0 @esri/arcgis-rest-request@^2.0.0 amcharts3 @esri/cedar
-```
-
-Alternatively, you can get cedar from the [unpkg.com](https://unpkg.com/) CDN as [shown below](#from-a-cdn).
 
-### Importing Cedar
+![](https://img.shields.io/static/v1?label=JavaAdvanc&message=操作系统&color=blue)   ![](https://img.shields.io/static/v1?label=JavaAdvance&message=计算机基础&color=<COLOR>)  ![](https://img.shields.io/static/v1?label=JavaAdvance&message=计算机网络&color=yellowgreen)  ![](https://img.shields.io/static/v1?label=JavaAdvance&message=设计模式&color=success)  ![](https://img.shields.io/static/v1?label=JavaAdvance&message=JVM&color=important) ![](https://img.shields.io/static/v1?label=JavaAdvance&message=Linux&color=palegoldenrod) ![](https://img.shields.io/static/v1?label=JavaAdvance&message=Java基础&color=orange)  ![](https://img.shields.io/static/v1?label=JavaAdvance&message=Java并发&color=9cf)  ![](https://img.shields.io/static/v1?label=JavaAdvance&message=Spring&color=blueviolet)  ![](https://img.shields.io/static/v1?label=JavaAdvance&message=SpringBoot&color=informational)  ![](https://img.shields.io/static/v1?label=JavaAdvance&message=Springcloud&color=ff69b4) 
 
-If you're using Cedar in a modern web application built with a bundler like [webpack](https://webpack.js.org/), you can load Cedar and its [dependencies](#dependencies) using `import` statements.
 
-```js
-// import the amCharts base library
-import "amcharts3/amcharts/amcharts";
-// in this case, we only need bar charts, so we'll import the appropriate amCharts module
-import "amcharts3/amcharts/serial";
-// optionally import an amcharts theme; cedar provides a calcite theme
-import "@esri/cedar/dist/umd/themes/amCharts/calcite.js";
-// import the cedar Chart class
-import { Chart } from "@esri/cedar"
-```
+<img src="https://user-images.githubusercontent.com/27909365/156888297-294feb0a-7b53-4abc-8306-72226ca8cda4.png" style="max-width: 100%;">
 
-If you need to use other chart types, or want to use amCharts plugins, import the appropriate amCharts modules _before importing cedar_:
 
-```js
-// for pie charts
-import "amcharts3/amcharts/pie";
-// for scatter and bubble charts
-import "amcharts3/amcharts/xy";
-// for radar charts
-import "amcharts3/amcharts/radar";
-```
+<a href="https://mp.weixin.qq.com/s?__biz=MzkyNzMyODc3Mg==&mid=2247484984&idx=1&sn=88af403112b249e9b5552a380fc62daf&chksm=c228f953f55f704592dede1412d65815fd6e09432d6704d9e0355bca6717de8f2b2a40aa5cb6#rd" rel="nofollow"><img src="https://user-images.githubusercontent.com/27909365/156881472-05077cb8-fff0-40c8-a803-24b5f0f8da3a.png" data-canonical-src="https://user-images.githubusercontent.com/27909365/156881472-05077cb8-fff0-40c8-a803-24b5f0f8da3a.png" style="max-width: 100%;">
+</a>
 
-See the [amCharts documentation](https://github.com/amcharts/amcharts3) for more information on importing amCharts modules.
 
-### Using Cedar
+## 🎉 整理不易，真心希望能够帮助到大家，同时求个 Star，Fork 谢谢！（持续完善更新！）
 
-Once cedar is loaded you can create and show the chart at a designated element. First create the element:
+### &#8627; Stargazers
+[![Stargazers repo roster for @hong52ni/JavaAdvance-Interview](https://reporoster.com/stars/hong52ni/JavaAdvance-Interview)](https://github.com/hong52ni/JavaAdvance-Interview/stargazers)
 
-```html
-<div id="chart" style="height: 400px;"></div>
-```
+### &#8627; Forkers
+[![Forkers repo roster for @hong52ni/JavaAdvance-Interview](https://reporoster.com/forks/hong52ni/JavaAdvance-Interview)](https://github.com/hong52ni/JavaAdvance-Interview/network/members)
 
-Then add a script that will configure cedar and render the chart:
+## 🏆 Java集合容器
 
-```js
-// connect to the data
-var datasets = [{
-  "url": "https://services.arcgis.com/uDTUpUPbk8X8mXwl/arcgis/rest/services/Public_Schools_in_Onondaga_County/FeatureServer/0",
-  "name": "schools",
-  "query": {
-    "orderByFields": "Number_of_SUM DESC",
-    "groupByFieldsForStatistics": "Type",
-    "outStatistics": [{
-      "statisticType": "sum",
-      "onStatisticField": "Number_of",
-      "outStatisticFieldName": "Number_of_SUM"
-    }]
-  }
-}];
+1. 什么是集合
+2. 集合的特点
+3. 集合和数组的区别
+4. 使用集合框架的好处
+5. 常用的集合类有哪些？
+6. List，Set，Map三者的区别？
+7. 集合框架底层数据结构
+8. 哪些集合类是线程安全的？
+9. Java集合的快速失败机制 “fail-fast”？
+10. 怎么确保一个集合不能被修改？
 
-// designate a one or more series to show the data on the chart
-var series = [{
-  "category": {"field": "Type", "label": "Type"},
-  "value": {"field": "Number_of_SUM", "label": "Number of Students"},
-  "source": "schools"
-}];
+ ........ 
 
-// optionally override any of the cart type's default styles
-var overrides = {
-  "categoryAxis": {
-    "labelRotation": -45
-  }
-}
+![image](https://user-images.githubusercontent.com/28288225/156195686-85479839-bae2-454b-94f1-e71f8c033cd1.png)
 
-//create a cedar chart using the known 'bar' type
-var elementId = 'chart';
-// NOTE: the following line assumes you've imported Chart like:
-// import { Chart } from "@esri/cedar";
-// if you've loaded the Cedar using script tags
-// and are using the cedar global instead
-// you should replace this line with:
-// var chart = new cedar.Chart(elementId, {"type": "bar"}) 
-var chart = new Chart(elementId, {"type": "bar"})
-  .datasets(datasets)
-  .series(series)
-  .overrides(overrides);
 
-// render the chart
-chart.show();
-```
 
-See the [API documentation](https://esri.github.io/cedar/api) for further details on how to work with cedar charts.
+## 🎊 Java多线程
 
-See the [Demos](#demos) section below for examples of Cedar working with other libraries like ArcGIS API for JavaScript or React.
+1. 多线程的作用？
+2. 线程和进程的区别是什么？
+3. Java 实现线程有哪几种方式？
+4. 启动线程方法 start()和 run()有什么区别？
+5. 怎么终止一个线程？如何优雅地终止线程？
+6. 一个线程的生命周期有哪几种状态？它们之间如何流转的？
+7. 线程中的 wait()和 sleep()方法有什么区别？
+8. 多线程同步有哪几种方法？
+9. 什么是死锁？如何避免死锁？
+10. 多线程之间如何进行通信？ 
 
-### Configuring Cedar
-You can configure cedar to use a custom implementation of `fetch()` by setting `cedar.config.fetch = myCustomFetch`.
+ ......
 
-## Concepts
+![image](https://user-images.githubusercontent.com/28288225/156366515-86263728-2ae8-4515-a67a-3bf65fa63a78.png)
 
-<!--
-  At the highest level, Cedar provides a simple chart API. Beyond that it is possible to create new and unique chart types that can be loaded and customized through interactions and styling depending on your needs.
--->
 
-### Components of a Cedar Chart
 
-Cedar charts are built from a [definition](https://esri.github.io/cedar/api/interfaces/idefinition.html), which consists of:
-- an array of [datasets](https://esri.github.io/cedar/api/interfaces/idataset.html), each has _either_:
-  - a `url` to an ArcGIS feature layer along with optional [query parameters](https://developers.arcgis.com/rest/services-reference/query-feature-service-layer-.htm)
-  - _or_ inline `data`, which can be a [feature set](https://esri.github.io/arcgis-rest-js/api/common-types/IFeatureSet/), or an array of [features](https://esri.github.io/arcgis-rest-js/api/common-types/IFeature/) or [POJO](http://blog.dreasgrech.com/2012/02/creating-pojos-in-javascript.html)s
-- an array of [series](https://esri.github.io/cedar/api/interfaces/iseries.html) that bind that data to the plots (bars, lines, points, etc) on the chart
-- and `overrides` that are specific modifications to the chart type's default styles
+## 🎯 Java并发编程
 
-### Types of Charts
+1. 为什么要使用并发编程
+2. 多线程应用场景
+3. 并发编程有什么缺点
+4. 并发编程三个必要因素是什么？
+5. Java 程序中怎么保证多线程的运行安全？
+6. 并行和并发有什么区别？
+7. 什么是多线程
+8. 多线程的好处
+9. 多线程的劣势
+10. 线程和进程区别 
 
-Cedar currently provides a set of commonly used chart types including [bar](https://esri.github.io/cedar/?type=bar), [line](https://esri.github.io/cedar/?type=line), [area](https://esri.github.io/cedar/?type=area), [scatter](https://esri.github.io/cedar/?type=scatter), [bubble](https://esri.github.io/cedar/?type=bubble), [pie](https://esri.github.io/cedar/?type=pie), and [radar](https://esri.github.io/cedar/?type=radar). In the future it will be possible for developers to create custom charts types that can be used by other developers with their own data sources.
+ ......
 
-### Presentations
+![image](https://user-images.githubusercontent.com/28288225/156195977-1e5041f6-500a-487a-a1c5-467485a04db8.png)
 
-#### Charts and Custom Visualizations Beyond the Map
 
-[Slides from the 2018 DevSummit](https://tomwayson.github.io/Charts-and-Custom-Visualizations-Beyond-the-Map/)
 
-[Video from the 2017 DevSummit](https://www.youtube.com/watch?v=V4T1y53yaj8)
+## ✈️ JVM虚拟机
 
-## Demos
+1. 我们开发人员编写的Java代码是怎么让电脑认识的
+2. 为什么说java是跨平台语言
+3. Jdk和Jre和JVM的区别
+4. 说一下 JVM由那些部分组成，运行流程是什么？
+5. 说一下 JVM 运行时数据区
+6. 详细的介绍下程序计数器？（重点理解）
+7. 详细介绍下Java虚拟机栈?（重点理解）
+8. 你能给我详细的介绍Java堆吗?（重点理解）
+9. 能不能解释一下本地方法栈？
+10. 能不能解释一下方法区（重点理解） 
 
-See [this code pen](https://codepen.io/tomwayson/pen/paxgeO) to try creating a simple bar chart like the one above.
+ ......
 
-You can then [see and modify the definitions for different types of charts](https://esri.github.io/cedar/).
+![image](https://user-images.githubusercontent.com/28288225/156195843-9dbb021e-c545-4041-8032-ae726e106390.png)
 
-You can also see how to use cedar with the [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/) in these examples:
-- [A chart that aggregates map data](https://codepen.io/tomwayson/pen/YaKGjZ)
-- [A chart using layer features as inline data](https://codepen.io/tomwayson/pen/mxdVqO)
-- [Using cedar w/ client-side LayerView queries](https://jsbin.com/juqafec/edit?html,output)
 
-See [this CodeSandbox](https://codesandbox.io/s/esri-cedar-in-react-forked-kyoc2?file=/src/App.js) for an example of how to use Cedar in React.
 
-### Loading Cedar
+## ✨ Tomcat
 
-Instead of [installing](installing-cedar) and [importing](importing-cedar) Cedar, you can load Cedar and its [dependencies](#dependencies) by including script tags that point to the CDN (or your locally installed versions of these libraries). This will make the `cedar` global available to your application.
+1. Tomcat的缺省端口是多少，怎么修改？
+2. Tomcat 有哪几种Connector 运行模式(优化)？
+3. Tomcat 有几种部署方式？
+4. Tomcat容器是如何创建servlet类实例？用到了什么原理？
+5. Tomcat 如何优化？
+6. Tomcat 内存调优
+7. Tomcat 垃圾回收策略调优
+8. Tomcat 共享session处理
+9. Tomcat 添加JMS远程监控
+10. 专业点的分析工具有
 
-#### From a CDN
+ ....
+ 
+ ![image](https://user-images.githubusercontent.com/28288225/156371973-2107ecc5-1e0a-492f-aa78-a80dce8b9777.png)
 
-```html
-<!-- load the amCharts base library -->
-<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-<!-- in this case, we only need bar charts, so we'll load the appropriate amCharts script -->
-<script src="https://www.amcharts.com/lib/3/serial.js"></script>
-<!-- load the arcgis-rest-js scripts -->
-<script src="https://unpkg.com/@esri/arcgis-rest-request"></script>
-<script src="https://unpkg.com/@esri/arcgis-rest-feature-layer"></script>
-<!-- optionally load an amcharts theme; cedar provides a calcite theme -->
-<script src="https://unpkg.com/@esri/cedar/dist/umd/themes/amCharts/calcite.js"></script>
-<!-- load cedar -->
-<script src="https://unpkg.com/@esri/cedar/dist/umd/cedar.js"></script>
-```
+ 
 
-If you need to use other chart types, or want to use amCharts plugins, load the appropriate amCharts scripts before loading cedar:
+## 🎺 MySQL
 
-```html
-<!-- for pie charts -->
-<script src="https://www.amcharts.com/lib/3/pie.js"></script>
-<!-- for scatter and bubble charts -->
-<script src="https://www.amcharts.com/lib/3/xy.js"></script>
-<!-- for radar charts -->
-<script src="https://www.amcharts.com/lib/3/radar.js"></script>
-<!-- optioinally load the amcharts plugin to export the chart as and image or table -->
-<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-```
+1. MySQL 中有哪几种锁？
+2. MySQL 中有哪些不同的表格？
+3. 简述在MySQL 数据库中 MyISAM 和InnoDB 的区别
+4. MySQL 中InnoDB 支持的四种事务隔离级别名称
+5. CHAR 和VARCHAR 的区别？
+6. 主键和候选键有什么区别？
+7. myisamchk 是用来做什么的？
+8. 如果一个表有一列定义为TIMESTAMP，将发生什么？
+9. 你怎么看到为表格定义的所有索引？
+10. 列对比运算符是什么？
 
-## Dependencies
+ .......
 
-Cedar isn't yet another JavaScript charting library. Instead, cedar is a very thin wrapper around other libraries that do the heavy lifting. Cedar uses [amCharts](https://www.amcharts.com/javascript-charts/) library as its charting engine. Cedar also uses [@esri/arcgis-rest-feature-layer](https://esri.github.io/arcgis-rest-js/api/feature-layer/) and [@esri/arcgis-rest-request](https://esri.github.io/arcgis-rest-js/api/request/) to query feature data. You will need to [install](#installing-cedar) these libraries along with cedar in your application. If you are loading cedar from a CDN, please refer to the [loading cedar](#loading-cedar) section above for the `<script>` tags that you will need to include.
+![image](https://user-images.githubusercontent.com/28288225/156369431-d6fc1001-04c2-4401-bb94-8219b6fe1133.png)
 
-Cedar supports the [same browsers as ArcGIS Online](https://doc.arcgis.com/en/arcgis-online/reference/browsers.htm), however you may need to include polyfills for [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) and [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), if your application has to support browers that don't support them (i.e. IE or older versions of Safari/Android).
 
-### Versioning
 
-For transparency into the release cycle and in striving to maintain backward compatibility, Cedar is maintained under the Semantic Versioning guidelines and will adhere to these rules whenever possible.
+## 👍 Memcached
 
-Releases will be numbered with the following format:
+1. Memcached是什么，有什么作用？
+2. Memcached服务分布式集群如何实现？
+3. Memcached服务特点及工作原理是什么？
+4. 简述Memcached内存管理机制原理？
+5. Memcached是怎么工作的？
+6. Memcached最大的优势是什么？
+7. Memcached和MySQL的querycache相比，有什么优缺点？
+8. memcached和服务器的local cache（比如PHP的APC、mmap文件等）相比，有什么优缺点？
+9. memcached的cache机制是怎样的？
+10. memcached如何实现冗余机制？
 
-`<major>.<minor>.<patch>`
+ ......
+ 
+ ![image](https://user-images.githubusercontent.com/28288225/156371445-943789a9-a557-4184-b9ac-32b5a0886b2d.png)
 
-And constructed with the following guidelines:
 
-* Breaking backward compatibility **bumps the major** while resetting minor and patch
-* New additions without breaking backward compatibility **bumps the minor** while resetting the patch
-* Bug fixes and misc changes **bumps only the patch**
 
-For more information on SemVer, please visit <http://semver.org/>.
+## 👏 Redis
 
-## Development Instructions
+1. 什么是Redis？
+2. Redis有哪些优缺点？
+3. 使用redis有哪些好处？
+4. 为什么要用 Redis / 为什么要用缓存
+5. 为什么要用 Redis 而不用 map/guava 做缓存?
+6. Redis为什么这么快
+7. Redis有哪些数据类型
+8. Redis的应用场景
+9. Redis持久化
+10. Redis 的持久化机制是什么？各自的优缺点？
 
-This repository is a monorepo managed using [yarn workspaces](https://yarnpkg.com/lang/en/docs/workspaces/) and [lerna](https://github.com/lerna/lerna)
+ ......
 
-1. Fork this repository and clone 'cedar' locally
-1. `cd` into the `cedar` folder
-1. Install the dependencies and initialize the monorepo with `yarn`
-1. to run the docs site locally, start a web server at the root folder and visit `/docs`
-1. to rebuild the script files used by the docs page whenever the source code is updated, run `yarn start`
+![image](https://user-images.githubusercontent.com/28288225/156370431-9878cbb8-8cce-45bb-9af7-1ea3684d672f.png)
 
-### Tests
 
-To run tests one time for all packages, run `yarn test` from the monorepo root.
 
-To run tests for any package as you update its source code, `cd` into that package and run `yarn run test:watch` to continually run that package's tests as you make your changes.
+## 🖥️ elasticsearch
+1. elasticsearch 了解多少，说说你们公司 es 的集群架构，索引数据大小，分片有多少，以及一些调优手段 
+2. elasticsearch 的倒排索引是什么
+3. elasticsearch 索引数据多了怎么办，如何调优，部署
+4. elasticsearch 是如何实现 master 选举
+5. 详细描述一下 Elasticsearch 索引文档的过程
+6. 详细描述一下 Elasticsearch 搜索的过程？
+7. Elasticsearch 在部署时，对 Linux 的设置有哪些优化方法
+8. ucence 内部结构是什么？
+9. Elasticsearch 是如何实现 Master 选举的？
+10. Elasticsearch 中的节点（比如共 20 个），其中的10 个选了一个 master，另外 10 个选了另一个 master，怎么办？
 
-### Licensing
-Copyright &copy; 2014-2018 Esri
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+ ......
 
-> http://www.apache.org/licenses/LICENSE-2.0
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+![image](https://user-images.githubusercontent.com/28288225/156193359-35dd56c6-6e45-4e4b-86c3-0a11d20cb9f5.png)
 
-A copy of the license is available in the repository's [LICENSE](./LICENSE) file.
+
+
+## ✨ ZooKeeper
+
+1. ZooKeeper 是什么？
+2. ZooKeeper 提供了什么？
+3. Zookeeper 文件系统
+4. ZAB 协议？
+5. 四种类型的数据节点 Znode
+6. Zookeeper Watcher 机制 -- 数据变更通知
+7. 客户端注册 Watcher 实现
+8. 服务端处理 Watcher 实现
+9. 客户端回调 Watcher
+10. ACL 权限控制机制
+
+ ......
+
+![image](https://user-images.githubusercontent.com/28288225/156370937-966972e9-9e4d-43c9-beac-3923be600396.png)
+
+
+
+## 💾 Dubbo
+1. 为什么要用 Dubbo？
+2. Dubbo 是什么？
+3. Dubbo 的使用场景有哪些？
+4. Dubbo 核心功能有哪些？
+5. Dubbo 核心组件有哪些？
+6. Dubbo 服务器注册与发现的流程？
+7. Dubbo 的整体架构设计有哪些分层?
+8. Dubbo Monitor 实现原理？
+9. Dubbo 类似的分布式框架还有哪些？
+10. Dubbo 和 Spring Cloud 有什么关系？
+
+ ......
+
+![image](https://user-images.githubusercontent.com/28288225/156194115-4af3991d-6ce5-45e2-86e1-8969c4503bf1.png)
+
+
+
+
+## 🐮 RocketMq
+
+1. RocketMq 是什么
+2. RocketMq 有什么功能
+3. RoctetMq 架构
+4. RocketMq 消息模型（专业术语）
+5. 核心问题
+  1. 顺序消息
+  2. 消息过滤
+  3. 消息去重
+  4. 分布式事务消息
+  5. 消息的可用性
+  6. 刷盘实现
+  7. 负载均衡
+
+ ......
+ 
+ ![image](https://user-images.githubusercontent.com/28288225/156373436-8eabadf2-cf11-4423-8d36-8da9d87b6ccb.png)
+
+ 
+ 
+## 🔨 Kafka
+
+1. Kafka 架构
+2. Kafka 基础概念
+3. Kafka Rebalance (重平衡)
+4. 日志索引
+5. 高性能, 高吞吐
+  1. 分区的原因
+  2. 顺序写
+  3. 批发送
+  4. 数据压缩
+  5. Page Cache & MMap
+  6. Page Cache
+  7. MMap (Memory Mapped Files, 内存映射文件)
+
+
+ ......
+
+![image](https://user-images.githubusercontent.com/28288225/156374041-5a238c04-75b5-4de2-b537-8c92ed097e85.png)
+
+
+
+
+## 🔮 RabbitMQ
+
+1. 什么是MQ
+2. MQ的优点
+3. 解耦、异步、削峰是什么？
+4. 消息队列有什么缺点
+5. 你们公司生产环境用的是什么消息中间件？
+6. Kafka、ActiveMQ、RabbitMQ、RocketMQ 有什么优缺点？
+7. MQ 有哪些常见问题？如何解决这些问题？
+8. 什么是 RabbitMQ？
+9. Rabbitmq 的使用场景
+10. RabbitMQ基本概念
+
+ ......
+ 
+![image](https://user-images.githubusercontent.com/28288225/156374538-d0d42a57-34e7-4ded-b6b8-ae84d216b148.png)
+
+
+
+## 🎉 Netty
+
+1. Netty
+2. I/O 模式
+3. I/O 多路复用
+  1. select
+  2. poll
+  3. epoll
+4. Java 的 I/o
+5. Netty 线程模型和 Reactor 模式
+6. Echo服务
+7. 源码剖析
+
+ ......
+ 
+
+ ![image](https://user-images.githubusercontent.com/28288225/156383064-d7eb4ae0-ef67-4b73-ac32-5adf36608492.png)
+
+ 
+
+## 🏆 一线大厂面试题
+
+1. 百度篇
+2. 滴滴篇
+3. 华为篇
+4. 京东篇
+5. 美团篇
+6. 腾讯篇
+7. 头条篇
+
+ .......
+ 
+
+
+---
+
+**<font face="宋体" color=red>持续更新中！**
+
+![image](https://user-images.githubusercontent.com/27909365/156886582-98607a79-b53c-4444-a194-145c992f5777.png)
+
+
+ 关注公众号： **Java架构师进阶编程**，回复 “**面试**” ，获取上百份面试资源！ 
+ 我也会在公众号发布面试要点精讲，欢迎关注！
+
+![](https://user-images.githubusercontent.com/27909365/156889006-109e00b2-b51c-4bb6-a776-977889293159.png)
